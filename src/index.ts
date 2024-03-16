@@ -41,7 +41,9 @@ async function main() {
 
   // filter out the polaroids that are already in the database
   const newPolaroids = polaroids.filter(
-    (listing) => dbPolaroids.map((dbP) => dbP.id).includes(listing.id) === false
+    (listing) =>
+      dbPolaroids.map((dbP) => String(dbP.id)).includes(String(listing.id)) ===
+      false
   );
 
   if (newPolaroids.length === 0) {
