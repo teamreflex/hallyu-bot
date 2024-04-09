@@ -37,7 +37,8 @@ async function main() {
         products.id,
         polaroids.map((listing) => listing.id)
       )
-    );
+    )
+    .limit(50);
 
   // filter out the polaroids that are already in the database
   const newPolaroids = polaroids.filter(
