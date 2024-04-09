@@ -3,7 +3,7 @@ import { getProducts } from "./products";
 import { db } from "./db";
 import { env } from "./env";
 import { products } from "./db/schema";
-import { inArray } from "drizzle-orm";
+import { desc, inArray } from "drizzle-orm";
 import { postToDiscord } from "./discord";
 
 console.log("hallyu-bot starting");
@@ -38,6 +38,7 @@ async function main() {
         polaroids.map((listing) => listing.id)
       )
     )
+    .orderBy(desc(products.createdAt))
     .limit(50);
 
   // filter out the polaroids that are already in the database
