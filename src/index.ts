@@ -19,8 +19,10 @@ async function main() {
 
   // fetch products and filter for polaroids
   const polaroids = await getProducts().then((products) =>
-    products.filter((product) =>
-      product.title.toLowerCase().includes("polaroid")
+    products.filter(
+      (product) =>
+        product.title.toLowerCase().includes("polaroid") ||
+        product.title.toLowerCase().includes("artms")
     )
   );
 
