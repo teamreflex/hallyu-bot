@@ -40,6 +40,6 @@ export async function getProducts(): Promise<Product[]> {
     title: product.title,
     url: `https://hallyusuperstore.com/products/${product.handle}`,
     created_at: new Date(product.created_at),
-    image: product.images[0].src,
+    image: product.images[0]?.src ?? "",
   }));
 }
